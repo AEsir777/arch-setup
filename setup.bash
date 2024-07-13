@@ -47,7 +47,11 @@ ln -sf ~/linux-config/.vimrc ~/.vimrc
 sudo pacman -S discord
 
 # chinese keyboard
-sudo pacman -S fcitx5-im fcitx5-chinese-addons
+sudo pacman -S fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-chinese-addons manjaro-asian-input-support-fcitx5
+sudo vim /etc/environment
+# GTK_IM_MODULE=fcitx
+# QT_IM_MODULE=fcitx
+# XMODIFIERS=@im=fcitx
 
 # TLP for battery performance
 # sudo pacman -S TLP
@@ -91,9 +95,13 @@ FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 
 # load chinese in wine
 # download at https://pc.weixin.qq.com/?lang=en_US
-# then wine xxx.exe
+wine ~/Downloads/WeChatSetup.exe
 # copy all the fonts from windows to wine
 scp k322liu@linux.student.cs.uwaterloo.ca:~/Fonts/* ~/.wine/drive_c/windows/Fonts/
+
+sudo pacman -S winetricks kdialog
+winetricks fakeChinese 
+# install a bunch of fonts
 
 # docker
 yay docker cmake
