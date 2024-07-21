@@ -5,9 +5,18 @@ pamac build google-chrome
 sudo pacman -S tmux nodejs-lts-iron asusctl supergfxctl rog-control-center vim
 pamac build visual-studio-code-bin
 
+# using supergfxctl for GPU passthrough VFIO
+# /etc/supergfxd.conf
+# {
+# "vfio_enable": true,
+# "hotplug_type": "Asus"
+# }
+
 # sound
 sudo pacman -S sof-firmware alsa-ucm-conf mosh
 sudo echo "options snd-intel-dspcfg dsp_driver=1" >>  /etc/modprobe.d/soundfix.conf
+# audio quality
+# turn the sensitive of audio down
 
 # yay
 sudo pacman -Syu
@@ -108,3 +117,43 @@ yay docker cmake
 
 # Nvdia driver
 sudo pacman -S linux69-nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
+
+# download wechat linux beta version
+# downlaod amd64_login from 
+# https://github.com/lovechoudoufu/wechat_for_linux/releases 
+yay deptab
+sudo deptap -u ~/Downloads/wechat-beta_1.0.0.238_amd64_login.deb
+sudo debtap -u ~/Downloads/wechat-beta*
+sudo pacman -U wechat*.pkg*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
