@@ -9,14 +9,12 @@ set shortmess-=S
 set mouse=n " we only care about being able to scroll around
 
 set spell
-set colorcolumn=85
 set wildmenu
 
 " indent
 set smartindent
-set autoindent
 set smarttab
-filetype plugin indent on
+set colorcolumn=85
 
 " setup vundle
 set nocompatible              " be iMproved, required
@@ -56,7 +54,6 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-syntax on
 set termguicolors
 
 " color scheme
@@ -67,7 +64,7 @@ hi Normal guibg=NONE ctermbg=NONE
 " change comment and line number color
 hi Comment guifg=#A1B9D1
 hi LineNr guifg=#848B91
-
+hi TabLine guifg=#A7ACB0
 
 
 " airline
@@ -82,7 +79,6 @@ let g:airline#extensions#default#layout = [
 \ [ 'a', 'b', 'c' ],
 \ [ 'x', 'z' , 'y' ],
 \ ['error', 'warning'] ]
-
 filetype plugin indent on    " required
 
 set cursorline
