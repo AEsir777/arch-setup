@@ -46,7 +46,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 " replace surround  cs<before><after>
 Plug 'tpope/vim-surround'
-"git
+" git
 Plug 'airblade/vim-gitgutter'
 
 call plug#end()
@@ -64,8 +64,11 @@ set noshowmode
 colorscheme catppuccin_mocha
 " background transparency
 hi Normal guibg=NONE ctermbg=NONE
-" comment color change
-hi Comment guifg=#A1b9D1
+" change comment and line number color
+hi Comment guifg=#A1B9D1
+hi LineNr guifg=#848B91
+
+
 
 " airline
 set t_Co=256
