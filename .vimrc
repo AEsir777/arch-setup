@@ -62,7 +62,10 @@ set termguicolors
 " color scheme
 set noshowmode
 colorscheme catppuccin_mocha
+" background transparency
 hi Normal guibg=NONE ctermbg=NONE
+" comment color change
+hi Comment guifg=#A1b9D1
 
 " airline
 set t_Co=256
