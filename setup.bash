@@ -62,7 +62,8 @@ sudo vim /etc/environment
 # QT_IM_MODULE=fcitx
 # XMODIFIERS=@im=fcitx
 
-# TLP for battery performance
+# performance
+asusctl -c 80
 # sudo pacman -S TLP
 # systemctl enable tlp.service
 
@@ -113,7 +114,7 @@ winetricks fakeChinese
 # install a bunch of fonts
 
 # docker
-yay docker cmake
+yay docker cmake docker-compose
 
 # Nvdia driver
 sudo pacman -S linux69-nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
@@ -126,11 +127,36 @@ sudo deptap -u ~/Downloads/wechat-beta_1.0.0.238_amd64_login.deb
 sudo debtap -u ~/Downloads/wechat-beta*
 sudo pacman -U wechat*.pkg*
 
+# set up NTFS
+pamac install ntfs-3g
 
 
 
+###########################
+# allow ssh
+sudo pacman -S openssh
+sudo systemctl status sshd.service
+# enable and run
+sudo systemctl enable sshd.service sudo systemctl start sshd.service
+sudo systemctl enable --now sshd
 
 
+##########################
+# set up server
+# set up swap
+sudo mkswap /dev/nvme0n1p4
+sudo swapon /dev/nvme0n1p4
+sudo bash -c "echo UUID=$(lsblk -no UUID /dev/nvme0n1p4) swap swap defaults 0 0 >> /etc/fstab"
+mkinitcpio -P
+sudo update-grub
+sudo reboot
+
+# start docker service
+sudo systemctl start docker
+# plex docker image
+mkdir docker
+# plex docker file 
+# https://hub.docker.com/r/linuxserver/plex 
 
 
 
