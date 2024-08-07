@@ -116,8 +116,16 @@ winetricks fakeChinese
 # docker
 yay docker cmake docker-compose
 
-# Nvdia driver
+# Nvidia driver
 sudo pacman -S linux69-nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
+# Nvidia drm
+sudo vim /etc/default/grub
+# add nvidia-drm.modeset=1
+# Early loading
+sudo vim /etc/mkinitcpio.conf
+# MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+# HOOKS=() line, find the word kms inside the parenthesis and remove it
+sudo mkinitcpio -P
 
 # download wechat linux beta version
 # downlaod amd64_login from 
@@ -129,7 +137,6 @@ sudo pacman -U wechat*.pkg*
 
 # set up NTFS
 pamac install ntfs-3g
-
 
 
 ###########################
@@ -159,9 +166,11 @@ mkdir docker
 # https://hub.docker.com/r/linuxserver/plex 
 
 
-
-
-
+# hibernation
+# in /etc/deafult/grub add resume=UUID=<> to LINUX_DEFAULT
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo vim /etc/mkinitcpio.conf
+# add resume in hooks after udev
 
 
 

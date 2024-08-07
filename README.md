@@ -12,7 +12,10 @@ ToDo:
 - [ ] check if latex-vim is actually working
 - [ ] set up reverse look up for latex
 - [x] audio quality
-- [ ] nvidia driver DRM setup
+- [x] nvidia driver DRM setup
 - [ ] power efficiency
 - [ ] mouse speed different from windows(?)
-- [ ] try the native version 
+- [ ] try the native version wechat
+- [ ] Clean up build
+- [ ] Get a list of installed packages script
+- [ ] Optional: Configuration file
