@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# disable sudo
+sudo visudo
+# add kebing ALL=(ALL:ALL) NOPASSWD: ALL
+
+
 # start tools
 pamac build google-chrome
 sudo pacman -S tmux nodejs-lts-iron asusctl supergfxctl rog-control-center vim
@@ -143,9 +148,18 @@ pamac install ntfs-3g
 # allow ssh
 sudo pacman -S openssh
 sudo systemctl status sshd.service
+# set ssh configurations
+sudo vim /etc/ssh/sshd_config
+# change ListenAddress to private ip, Port, password disable and only allow key
+# add ssh key in Authorized key
+touch ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+# cat pub key into it
+
 # enable and run
-sudo systemctl enable sshd.service sudo systemctl start sshd.service
+sudo systemctl enable sshd.service 
 sudo systemctl enable --now sshd
+sshd -t # for debug
 
 
 ##########################
@@ -158,13 +172,24 @@ mkinitcpio -P
 sudo update-grub
 sudo reboot
 
+# change mount point for external drive
+yay ntfs-3g
+lsblk
+sudo blkid /dev/sda2
+sudo ntfs-3g /dev/sda2 /mnt/drive
+
+
 # start docker service
 sudo systemctl start docker
 # plex docker image
 mkdir docker
 # plex docker file 
 # https://hub.docker.com/r/linuxserver/plex 
-
+# qbit torrent file
+# https://hub.docker.com/r/linuxserver/qbittorrent
+# sonarr
+# https://hub.docker.com/r/linuxserver/sonarr
+docker pull linuxserver/sonarr
 
 # hibernation
 # in /etc/deafult/grub add resume=UUID=<> to LINUX_DEFAULT
@@ -174,7 +199,9 @@ sudo vim /etc/mkinitcpio.conf
 
 
 
-
+##################################
+## other applications
+yay musescore
 
 
 
