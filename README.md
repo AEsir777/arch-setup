@@ -9,7 +9,7 @@ ROG Zephyrus G14 GA403UV_GA403UV
 ```
 
 ToDo:
-- [ ] check if latex-vim is actually working
+- [x] check if latex-vim is actually working
 - [ ] set up reverse look up for latex
 - [x] audio quality
 - [x] nvidia driver DRM setup

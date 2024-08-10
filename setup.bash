@@ -96,9 +96,17 @@ chmod -R 600 ~/.ssh/*
 
 # vim latex bindings
 sudo pacman -S zathura zathura-pdf-mupdf
-sudo pacman -S extra/texlive-latex extra/texlive-latexextra extra/texlive-plaingeneric
+sudo pacman -S extra/texlive-latex extra/texlive-latexextra extra/texlive-plaingeneric texlive-binextra
 sudo texconfig rehash
 sudo mktexlsr
+
+# latex lsp
+yay nodejs npm cmake
+wget https://raw.githubusercontent.com/astoff/digestif/master/scripts/digestif -P ~/.local/bin
+# :CocInstall coc-texlab
+# C++
+# :CocCommand clangd.install
+# :CocInstall coc-clangd coc-json
 
 # tmux copy
 yay xsel
@@ -119,7 +127,7 @@ winetricks fakeChinese
 # install a bunch of fonts
 
 # docker
-yay docker cmake docker-compose
+yay docker docker-compose
 
 # Nvidia driver
 sudo pacman -S linux69-nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
