@@ -17,9 +17,11 @@ set smartindent autoindent
 set smarttab
 set colorcolumn=85
 
-" setup vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setup Vim-PlugIn
+set nocompatible          " be iMproved, required
+filetype off              " required
+filetype plugin indent on " required
 
 " Installing Vim-Plug if it's not available
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -47,13 +49,15 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 " git
 Plug 'airblade/vim-gitgutter'
-
+" vim tmux clipboard
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'roxma/vim-tmux-clipboard'
 " vim latex
 Plug 'lervag/vimtex'
 
 call plug#end()
-filetype plugin indent on    " required
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim latex configuration
 let g:vimtex_view_method = 'zathura'
 
@@ -72,6 +76,7 @@ let g:vimtex_compiler_method = 'latexmk'
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = ","
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fix color
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -88,7 +93,6 @@ hi Normal guibg=NONE ctermbg=NONE
 hi Comment guifg=#A1B9D1
 hi LineNr guifg=#848B91
 hi TabLine guifg=#A7ACB0
-
 
 " airline
 set t_Co=256
@@ -107,33 +111,16 @@ set cursorline
 hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za " fold/unfold with spacebar
 
-" VS code-esque line movement but with ctrl
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
-
 " fzf
 set rtp+=~/.fzf
 nnoremap <C-t> :FZF<CR>
-
-" scroll horizontally by half pages
-noremap <C-L> zL
-noremap <C-H> zH
-
-" sort python imports
-command -range=% Pysort :<line1>,<line2> sort /[if][^ ]*/
-
-" paste mode
-set pastetoggle=<F3>
 
 " CSV setup
 let g:csv_delim = ','
@@ -147,6 +134,35 @@ autocmd BufReadPost *
 \   exe "normal! g`\"" |
 \ endif
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Command remappings
+
+" sort python imports
+command -range=% Pysort :<line1>,<line2> sort /[if][^ ]*/
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General key remappings
+
+" VS code-esque line movement but with ctrl
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" scroll horizontally by half pages
+noremap <C-L> zL
+noremap <C-H> zH
+
+
+" paste mode
+set pastetoggle=<F3>
+
+" GitGutter toggle
+nnoremap <F2> :GitGutterBufferToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Coc
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -294,5 +310,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" GitGutter toggle
-nnoremap <F2> :GitGutterBufferToggle<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
