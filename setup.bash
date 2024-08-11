@@ -77,6 +77,14 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/mast
 echo ~/.bashrc-* >> ~/.bashrc
 rm ~/.bashrc-*
 
+# oh my posh for theme
+curl -s https://ohmyposh.dev/install.sh | bash -so
+# configure ~/.bashrc
+# eval "$(oh-my-posh init bash --config ~/linux-config/catppuccin_mocha.omp.json)"
+# override oh my bash theme
+exec bash
+
+
 # fix discord update version
 file $(which discord)
 cd /opt/discord/Discord

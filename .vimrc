@@ -7,12 +7,13 @@ set nowrap
 set showcmd
 set shortmess-=S
 set mouse=n " we only care about being able to scroll around
-
+set encoding=utf-8
 set spell
 set wildmenu
 
 " indent
-set smartindent
+set shiftwidth=4
+set smartindent autoindent
 set smarttab
 set colorcolumn=85
 
@@ -47,7 +48,29 @@ Plug 'tpope/vim-surround'
 " git
 Plug 'airblade/vim-gitgutter'
 
+" vim latex
+Plug 'lervag/vimtex'
+
 call plug#end()
+filetype plugin indent on    " required
+
+" vim latex configuration
+let g:vimtex_view_method = 'zathura'
+
+" Or with a generic interface:
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+
+" VimTeX uses latexmk as the default compiler backend. If you use it, which is
+" strongly recommended, you probably don't need to configure anything. If you
+" want another compiler backend, you can change it as follows. The list of
+" supported backends and further explanation is provided in the documentation,
+" see :help vimtex-compiler.
+let g:vimtex_compiler_method = 'latexmk'
+
+" Most VimTeX mappings rely on localleader and this can be changed with the
+" following line. The default is usually fine and is the symbol "\".
+let maplocalleader = ","
 
 " fix color
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
@@ -79,7 +102,6 @@ let g:airline#extensions#default#layout = [
 \ [ 'a', 'b', 'c' ],
 \ [ 'x', 'z' , 'y' ],
 \ ['error', 'warning'] ]
-filetype plugin indent on    " required
 
 set cursorline
 hi cursorline cterm=none term=none
