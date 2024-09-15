@@ -23,6 +23,22 @@ sudo echo "options snd-intel-dspcfg dsp_driver=1" >>  /etc/modprobe.d/soundfix.
 # audio quality
 # turn the sensitive of audio down
 
+# display
+xrandr --dpi 150x150
+# x11 applications
+# -forcedesktopscaling 1.25
+# verify which version x11 is running
+ps -o user= -C Xorg
+
+# install wayland
+sudo yay plasma-workspace 
+# fix fcitx5 in wayland
+# Set virtual keyboard as fcitx5
+# https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland
+unset QT_IM_MODULE
+unset SDL_IM_MODULE
+unset GTK_IM_MODULE
+
 # yay
 sudo pacman -Syu
 sudo pacman -S --needed base-devel git
@@ -59,6 +75,9 @@ ln -sf ~/linux-config/.vimrc ~/.vimrc
 
 # discord
 sudo pacman -S discord
+# update version
+file $(which discord)
+# edit /opt/discord/resources/build_info.json
 
 # chinese keyboard
 sudo pacman -S fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-chinese-addons manjaro-asian-input-support-fcitx5
@@ -213,11 +232,23 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo vim /etc/mkinitcpio.conf
 # add resume in hooks after udev
 
+# Configure ProntonVPN
+sudo pacman -S wireguard-tools
+# Download configure files
+sudo move ~/Downloads/*.conf /etc/wireguard
+# https://protonvpn.com/support/wireguard-manual-linux/ 
 
+# Configure domain name
+yay bind
+# Host ssh server on Cloudflared
+yay cloudflared
+# https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/use-cases/ssh/ 
 
 ##################################
 ## other applications
 yay musescore
+
+
 
 
 
