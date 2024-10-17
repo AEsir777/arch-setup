@@ -19,3 +19,16 @@ ToDo:
 - [ ] Clean up build
 - [ ] Get a list of installed packages script
 - [ ] Optional: Configuration file
+
+Server System:
+```
+Operating System: Ubuntu 24.04.1 LTS
+          Kernel: Linux 6.8.0-45-generic
+```
+VM of ProxMox
+
+ToDo:
+- [ ] Set up qbittorrent vpn
+- [ ] Set up radarr + overseerr
+- [ ] Config more plex or replace using jelly fin
+- [ ] immich

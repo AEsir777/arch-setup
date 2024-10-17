@@ -1,0 +1,73 @@
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ='America/Toronto'
+      - VERSION=docker
+      - PLEX_CLAIM= #optional
+    volumes:
+      - /home/kebing/media/plex_config:/config
+      - /home/kebing/media/plex/data:/data
+    ports:
+      - 32400:32400/tcp
+      - 32469:32469/udp
+    restart: unless-stopped
+
+  # Torrent client
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ='America/Toronto'
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=6881
+    volumes:
+      - /home/kebing/media/qbittorrent_config:/config
+      - /home/kebing/media/plex/downloads:/downloads
+    ports:
+      - 8080:8080
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped
+
+
+  # Automatically download tv series
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ='America/Toronto'
+    volumes:
+      - /home/kebing/media/sonarr_config:/config
+      - /home/kebing/media/plex/data:/data
+      - /home/kebing/media/plex/downloads:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+
+  # Search for torrents
+  jackett:
+    image: lscr.io/linuxserver/jackett:latest
+    container_name: jackett
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ='America/Toronto'
+      - AUTO_UPDATE=true #optional
+      - RUN_OPTS= #optional
+    volumes:
+      - /home/kebing/media/jackett_config:/config
+      - /home/kebing/media/plex/downloads:/downloads
+    ports:
+      - 9117:9117
+    restart: unless-stopped
+
+
