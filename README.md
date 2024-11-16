@@ -19,6 +19,7 @@ ToDo:
 - [ ] Clean up build
 - [ ] Get a list of installed packages script
 - [ ] Optional: Configuration file
+- [ ] Fix hibernation does not work
 
 Server System:
 ```
@@ -28,7 +29,10 @@ Operating System: Ubuntu 24.04.1 LTS
 VM of ProxMox
 
 ToDo:
+- [ ] Clean up folder structure for Sonarr and use hard link instead
 - [ ] Set up qbittorrent vpn
 - [ ] Set up radarr + overseerr
-- [ ] Config more plex or replace using jelly fin
+- [x] Config more plex or replace using jelly fin
+- [ ] Set up Jellyfin transcoding
 - [ ] immich
+- [ ] Check if Nvdia driver is working

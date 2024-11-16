@@ -228,6 +228,7 @@ mkdir docker
 docker pull linuxserver/sonarr
 
 # hibernation
+# https://www.vegard.net/manjaro-enable-hibernate/
 # in /etc/deafult/grub add resume=UUID=<> to LINUX_DEFAULT
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo vim /etc/mkinitcpio.conf
