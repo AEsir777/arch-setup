@@ -15,7 +15,7 @@ ToDo:
 - [x] nvidia driver DRM setup
 - [ ] power efficiency
 - [ ] mouse speed different from windows(?)
-- [ ] try the native version wechat
+- [x] fixed Wechat by using flatpak
 - [ ] Clean up build
 - [ ] Get a list of installed packages script
 - [ ] Optional: Configuration file

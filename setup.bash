@@ -62,13 +62,10 @@ openrazer-daemon -Fv
 # cd razer-cli
 # sudo python setup.py install
 
-# wechat - electron (not work for me)
-# yay snapd
-# sudo systemctl enable --now snapd.socket
-# sudo systemctl enable --now snapd.socket
-# sudo ln -s /var/lib/snapd/snap /snap
-# yay wechat-uos-qt
-
+# Download Discover
+# download wechat from Discover
+# https://github.com/web1n/wechat-universal-flatpak
+# flatpak install com.tencent.WeChat-<arch>.flatpak
 
 # set up vimrc and tmux
 ln -sf ~/linux-config/.tmux.conf ~/.tmux.conf
@@ -139,17 +136,15 @@ wget https://raw.githubusercontent.com/astoff/digestif/master/scripts/digestif -
 # tmux copy
 yay xsel
 
-# install wechat
+# install wine 
 yay Wine
 cd ${WINEPREFIX:-~/.wine}/drive_c/windows/Fonts && for i in /usr/share/fonts/**/*.{ttf,otf}; do ln -s "$i"; done
 FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 
 # load chinese in wine
 # download at https://pc.weixin.qq.com/?lang=en_US
-wine ~/Downloads/WeChatSetup.exe
 # copy all the fonts from windows to wine
 scp k322liu@linux.student.cs.uwaterloo.ca:~/Fonts/* ~/.wine/drive_c/windows/Fonts/
-
 sudo pacman -S winetricks kdialog
 winetricks fakeChinese 
 # install a bunch of fonts
@@ -168,13 +163,6 @@ sudo vim /etc/mkinitcpio.conf
 # HOOKS=() line, find the word kms inside the parenthesis and remove it
 sudo mkinitcpio -P
 
-# download wechat linux beta version
-# downlaod amd64_login from 
-# https://github.com/lovechoudoufu/wechat_for_linux/releases 
-yay deptab
-sudo deptap -u ~/Downloads/wechat-beta_1.0.0.238_amd64_login.deb
-sudo debtap -u ~/Downloads/wechat-beta*
-sudo pacman -U wechat*.pkg*
 
 # set up NTFS
 pamac install ntfs-3g
@@ -255,8 +243,15 @@ yay musescore
 
 
 
-
-
+####################################
+# This is not used
+# download wechat linux beta version
+# downlaod amd64_login from 
+# https://github.com/lovechoudoufu/wechat_for_linux/releases 
+yay deptab
+sudo deptap -u ~/Downloads/wechat-beta_1.0.0.238_amd64_login.deb
+sudo debtap -u ~/Downloads/wechat-beta*
+sudo pacman -U wechat*.pkg*
 
 
 
