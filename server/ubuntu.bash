@@ -1,6 +1,7 @@
 # install required stuff
 sudo apt install curl nodejs
 sudo apt install git
+git config --global user.email lkb2438834817@gmail.com
 sudo apt install vim
 sudo apt install openssh-server
 echo "alias startSsh='sudo systemctl enable --now sshd'" >> ~/.bashrc
@@ -17,7 +18,7 @@ ln -s manjaro-zephyrusg14-setup/.tmux.conf ~/.tmux.conf
 # docker
 # Add Docker's official GPG key:
 sudo apt-get update
-sudo apt-get install ca-certificates curl
+sudo apt-get install ca-certificates curl xsel
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -30,7 +31,8 @@ echo \
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-
+# dns
+sudo apt-get install bind9
 
 
 

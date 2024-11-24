@@ -68,8 +68,8 @@ openrazer-daemon -Fv
 # flatpak install com.tencent.WeChat-<arch>.flatpak
 
 # set up vimrc and tmux
-ln -sf ~/linux-config/.tmux.conf ~/.tmux.conf
-ln -sf ~/linux-config/.vimrc ~/.vimrc
+ln -sf ~/manjaro-zephyrusg14-setup/.tmux.conf ~/.tmux.conf
+ln -sf ~/manjaro-zephyrusg14-setup/.vimrc ~/.vimrc
 
 # discord
 sudo pacman -S discord

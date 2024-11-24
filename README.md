@@ -29,7 +29,7 @@ Operating System: Ubuntu 24.04.1 LTS
 VM of ProxMox
 
 ToDo:
-- [ ] Clean up folder structure for Sonarr and use hard link instead
+- [x] Clean up folder structure for Sonarr and use hard link instead
 - [ ] Set up qbittorrent vpn
 - [ ] Set up radarr + overseerr
 - [x] Config more plex or replace using jelly fin
