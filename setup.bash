@@ -234,24 +234,32 @@ yay bind
 yay cloudflared
 # https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/use-cases/ssh/ 
 
+# MiniConda
+sudo curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+yay ffmpeg libva-nvidia-driver-git mesa 
+
+# face fusion 3.0
+conda init --all
+conda create --name facefusion python=3.12
+conda activate facefusion
+
+conda install conda-forge::cuda-runtime=12.4.1 conda-forge::cudnn=9.2.1.18
+git clone https://github.com/facefusion/facefusion
+cd facefusion
+python install.py --onnxruntime cuda 
+conda deactivate
+conda activate facefusion
+python facefusion.py run --open-browser
+
 ##################################
 ## other applications
-yay musescore
+yay musescore shotcut
 
 
 
 
 
-
-####################################
-# This is not used
-# download wechat linux beta version
-# downlaod amd64_login from 
-# https://github.com/lovechoudoufu/wechat_for_linux/releases 
-yay deptab
-sudo deptap -u ~/Downloads/wechat-beta_1.0.0.238_amd64_login.deb
-sudo debtap -u ~/Downloads/wechat-beta*
-sudo pacman -U wechat*.pkg*
 
 
 
