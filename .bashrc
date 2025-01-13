@@ -25,7 +25,7 @@ OSH_THEME=""
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_OSH_DAYS=13
+export UPDATE_OSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -262,14 +262,6 @@ shopt -s histappend
 # Use oh my posh theme
 eval "$(oh-my-posh init bash --config ~/linux-config/catppuccin_mocha.omp.json)"
 
-# aliases
-alias sshUW="ssh k322liu@linux.student.cs.uwaterloo.ca" 
-alias startSsh="sudo systemctl enable --now sshd"
-alias mountExt="sudo ntfs-3g /dev/sda2 /mnt/driver/"
-alias startDocker="sudo systemctl start docker"
-alias sysUpdate="sudo pacman -Syu && sudo pacman -Fy"
-alias setupTunnel="sudo docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token eyJhIjoiMjE5YTBhOTVlOGUyNjE4OGE1YWFjMDI2YzgwZmZkNTUiLCJ0IjoiZTc5MTM2NTUtZGIwYS00OGNiLWJkMGYtM2IyMTM4YWI2M2FiIiwicyI6Ik16YzJaalF5WmpVdE1UUTNPUzAwWVRBekxXRXdOakF0TldSbU9EaGlOVGRrTkRjMCJ9"
-
 # unset stuff when wayland
 if [ $XDG_SESSION_TYPE == wayland ]; then
     unset QT_IM_MODULE
@@ -277,35 +269,31 @@ if [ $XDG_SESSION_TYPE == wayland ]; then
     unset GTK_IM_MODULE
 fi
 
+# aliases
+alias sshUW="ssh k322liu@linux.student.cs.uwaterloo.ca" 
+alias startSsh="sudo systemctl enable --now sshd"
+alias mountExt="sudo ntfs-3g /dev/sda2 /mnt/driver/"
+alias startDocker="sudo systemctl start docker"
+alias sysUpdate="sudo pacman -Syu && sudo pacman -Fy"
+alias setupTunnel="sudo docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token eyJhIjoiMjE5YTBhOTVlOGUyNjE4OGE1YWFjMDI2YzgwZmZkNTUiLCJ0IjoiZTc5MTM2NTUtZGIwYS00OGNiLWJkMGYtM2IyMTM4YWI2M2FiIiwicyI6Ik16YzJaalF5WmpVdE1UUTNPUzAwWVRBekxXRXdOakF0TldSbU9EaGlOVGRrTkRjMCJ9"
+alias sshUbuntu="ssh 10.0.0.143"
+
+# premake
+export PATH=$PATH:/home/kebing/premake-4.3/bin/release/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/kebing/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/kebing/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/kebing/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/kebing/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
