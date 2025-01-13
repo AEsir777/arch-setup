@@ -252,6 +252,21 @@ conda deactivate
 conda activate facefusion
 python facefusion.py run --open-browser
 
+#################################
+## Virtualbox
+sudo pacman -Syu virtualbox linux611-rt-virtualbox-host-modules
+sudo vboxreload
+sudo pacman -S linux611-virtualbox-host-modules
+
+
+# premake4 download from https://sourceforge.net/projects/premake/
+cd build/gmake.unix
+make
+export PATH=$PATH:/home/kebing/premake-4.3/bin/release/
+yay premake 
+# cmake
+yay cmake
+
 ##################################
 ## other applications
 yay musescore shotcut
