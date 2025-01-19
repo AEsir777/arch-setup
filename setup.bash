@@ -70,6 +70,8 @@ openrazer-daemon -Fv
 # set up vimrc and tmux
 ln -sf ~/manjaro-zephyrusg14-setup/.tmux.conf ~/.tmux.conf
 ln -sf ~/manjaro-zephyrusg14-setup/.vimrc ~/.vimrc
+ln -sf ~/linux-config/coc/coc-settings.json ~/.vim/coc-settings.json
+ln -sf ~/linux-config/UltiSnips/* ~/.vim/UltiSnips/
 
 # discord
 sudo pacman -S discord
@@ -128,10 +130,14 @@ sudo mktexlsr
 # latex lsp
 yay nodejs npm cmake
 wget https://raw.githubusercontent.com/astoff/digestif/master/scripts/digestif -P ~/.local/bin
+ln -s ~/linux-config/coc/digestif ~/.local/bin
+chmod +x ~/.local/bin/digestif
+digestif
 # :CocInstall coc-texlab
 # C++
 # :CocCommand clangd.install
 # :CocInstall coc-clangd coc-json
+# install https://github.com/astoff/digestif#installation-and-set-up 
 
 # tmux copy
 yay xsel
@@ -153,7 +159,8 @@ winetricks fakeChinese
 yay docker docker-compose
 
 # Nvidia driver
-sudo pacman -S linux69-nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
+# Need to make sure meta driver are also here
+sudo pacman -S linux611-nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
 # Nvidia drm
 sudo vim /etc/default/grub
 # add nvidia-drm.modeset=1
@@ -265,7 +272,11 @@ make
 export PATH=$PATH:/home/kebing/premake-4.3/bin/release/
 yay premake 
 # cmake
-yay cmake
+yay cmake bear
+
+## CS798
+yay imagemagick
+
 
 ##################################
 ## other applications
