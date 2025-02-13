@@ -277,10 +277,29 @@ yay cmake bear
 ## CS798
 yay imagemagick
 
+## Rust
+## https://wiki.archlinux.org/title/Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup install 1.76.0
+yay hyperfine
+
+## Ollama deploy deepseek
+curl -fsSL https://ollama.com/install.sh | sh
+ollama run deepseek-r1:70b
+sudo vim /etc/systemd/system/ollama.service.d
+# Add line OLLAMA_MODELS
+sudo chown -R ollama:ollama /mnt/driver/Deepseek
+
+systemctl daemon-reload
+systemctl restart ollama
 
 ##################################
 ## other applications
 yay musescore shotcut
+
+#################################
+## Check disk space
+du -cha --max-depth=1 ./ | grep -E "M|G"
 
 
 
