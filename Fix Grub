@@ -1,0 +1,43 @@
+# https://wiki.manjaro.org/index.php/GRUB/Restore_the_GRUB_Bootloader
+
+
+su                                                                                                                                                  ✔ 
+manjaro-chroot -a 
+
+Reinstall grub
+root # grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=manjaro --recheck COPY TO CLIPBOARD
+
+
+Update the grub configuration
+root # grub-mkconfig -o /boot/grub/grub.cfg COPY TO CLIPBOARD
+
+
+
+EFI grub install messagesEFI variables are not supported on this system.
+
+Verify the existance of an EFI system partition
+root # lsblk -o PATH,PTTYPE,PARTTYPE,FSTYPE,PARTTYPENAME COPY TO CLIPBOARD
+
+
+Verify the efi filesystem is loaded
+root # ls /sys/firmware/efi COPY TO CLIPBOARD
+
+
+Exit chroot
+root # exit COPY TO CLIPBOARD
+
+
+Try loading the efi filesystem
+root # modprobe efivarfs COPY TO CLIPBOARD
+
+
+Re-enter chroot
+root # manjaro-chroot /mnt /bin/bash COPY TO CLIPBOARD
+
+
+Then mount the efi filesystem
+root # mount -t efivarfs efivarfs /sys/firmware/efi/efivars COPY TO CLIPBOARD
+
+
+Verify the efi filesystem is loaded
+root # ls /sys/firmware/efi COPY TO CLIPBOARD
