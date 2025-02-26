@@ -290,6 +290,9 @@ sudo vim /etc/systemd/system/ollama.service.d
 # Add line OLLAMA_MODELS
 sudo chown -R ollama:ollama /mnt/driver/Deepseek
 
+sudo docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://localhost:11434 -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+
+
 systemctl daemon-reload
 systemctl restart ollama
 
