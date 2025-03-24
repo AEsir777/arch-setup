@@ -169,6 +169,7 @@ sudo vim /etc/mkinitcpio.conf
 # MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 # HOOKS=() line, find the word kms inside the parenthesis and remove it
 sudo mkinitcpio -P
+sudo update-grub
 
 
 # set up NTFS
@@ -277,11 +278,21 @@ yay cmake bear
 ## CS798
 yay imagemagick
 
+## ECE 459
 ## Rust
 ## https://wiki.archlinux.org/title/Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup install 1.76.0
 yay hyperfine
+
+# automatically detec and gen nvdia driver
+sudo mhwd -a pci nonfree 0300
+sudo pacman -S cuda
+source /etc/profile
+export LIBRARY_PATH="/opt/cuda/lib64:$LIBRARY_PATH"
+
+# CS488
+yay blender
 
 ## Ollama deploy deepseek
 curl -fsSL https://ollama.com/install.sh | sh
