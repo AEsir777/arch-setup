@@ -128,7 +128,7 @@ sudo texconfig rehash
 sudo mktexlsr
 
 # latex lsp
-yay nodejs npm cmake
+yay nodejs npm cmake gdb
 wget https://raw.githubusercontent.com/astoff/digestif/master/scripts/digestif -P ~/.local/bin
 ln -s ~/linux-config/coc/digestif ~/.local/bin
 chmod +x ~/.local/bin/digestif
@@ -284,6 +284,8 @@ yay imagemagick
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup install 1.76.0
 yay hyperfine
+yay perf
+yay valgrind
 
 # automatically detec and gen nvdia driver
 sudo mhwd -a pci nonfree 0300
