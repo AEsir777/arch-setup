@@ -10,11 +10,12 @@ ROG Zephyrus G14 GA403UV_GA403UV
 
 ToDo:
 - [x] check if latex-vim is actually working
+- [ ] copy/paste from vim to tmux to shell
 - [ ] set up reverse look up for latex
 - [x] audio quality
 - [x] nvidia driver DRM setup
 - [ ] power efficiency
-- [ ] mouse speed different from windows(?)
+- [x] mouse speed different from windows(?)
 - [x] fixed Wechat by using flatpak
 - [ ] Clean up build
 - [ ] Get a list of installed packages script
