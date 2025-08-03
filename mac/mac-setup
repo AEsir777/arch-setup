@@ -1,0 +1,12 @@
+# install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo >> /Users/kebing/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/kebing/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# tmux
+brew install tmux
+
+# git
+git config --global user.email "lkb2438834817@gmail.com"
+git config --global user.name "AEsir777"
