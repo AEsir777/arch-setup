@@ -50,11 +50,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 " replace surround  cs<before><after>
 Plug 'tpope/vim-surround'
-" git
-Plug 'airblade/vim-gitgutter'
+
+" Clipboard
 " vim tmux clipboard
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
+" vim OSC 52 powerful yank 
+Plug 'haya14busa/vim-poweryank'
+
+" git
+Plug 'airblade/vim-gitgutter'
 " vim latex
 Plug 'lervag/vimtex'
 " This is for snippet
@@ -155,9 +160,10 @@ autocmd BufReadPost *
 " sort python imports
 command -range=% Pysort :<line1>,<line2> sort /[if][^ ]*/
 
-" Clipboard to pipe into xsel
-vnoremap <C-c> :w !xsel -b<CR><CR>
-nnoremap <C-c> :w !xsel -b<CR><CR>
+" Clipboard to pipe into system clipboard 
+" " vnoremap <C-c> :w !xsel -b<CR><CR>
+" " nnoremap <C-c> :w !xsel -b<CR><CR>
+map <C-c> <Plug>(operator-poweryank-osc52)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General key remappings
