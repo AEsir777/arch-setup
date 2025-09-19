@@ -13,11 +13,14 @@ set wildmenu
 
 " indent
 set shiftwidth=4
-set smartindent autoindent
+set smartindent 
+set autoindent
 set smarttab
 set colorcolumn=85
+filetype indent on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Setup Vim-PlugIn
 set nocompatible          " be iMproved, required
 filetype off              " required
@@ -54,6 +57,11 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 " vim latex
 Plug 'lervag/vimtex'
+" This is for snippet
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
 call plug#end()
 
@@ -75,6 +83,13 @@ let g:vimtex_compiler_method = 'latexmk'
 " Most VimTeX mappings rely on localleader and this can be changed with the
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = ","
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" snippet
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fix color
@@ -140,6 +155,10 @@ autocmd BufReadPost *
 " sort python imports
 command -range=% Pysort :<line1>,<line2> sort /[if][^ ]*/
 
+" Clipboard to pipe into xsel
+vnoremap <C-c> :w !xsel -b<CR><CR>
+nnoremap <C-c> :w !xsel -b<CR><CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General key remappings
 
@@ -161,6 +180,10 @@ set pastetoggle=<F3>
 
 " GitGutter toggle
 nnoremap <F2> :GitGutterBufferToggle<CR>
+
+
+" Close previous tab
+nnoremap <silent> cp :tabprevious<CR>:tabclose<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Coc
