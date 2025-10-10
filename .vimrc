@@ -11,13 +11,21 @@ set encoding=utf-8
 set spell
 set wildmenu
 
-" indent
-set shiftwidth=4
+" Indent 
+set shiftwidth=3
 set smartindent 
+" Copy the indent from prev line unless type nothing or <CTRL-D> and quit
 set autoindent
 set smarttab
 set colorcolumn=85
+set textwidth=85
 filetype indent on
+
+augroup NoAutoComment
+  au!
+  au FileType * setlocal formatoptions=cq cinoptions=(s
+  au FileType python setlocal indentexpr=
+augroup end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
