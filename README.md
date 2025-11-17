@@ -11,3 +11,6 @@ ln -s ~/arch-setup/.vimrc ~/.vimrc
 - [] Write a doc for the installation guide
 - [] Add doc + set up script for bluetooth setup
 - [] Change shortcuts for hyperland
+- [] Customize Arch settings
+- [X] fix `git diff` less not executable
+- [X] fix systemd-boot cannot locate windows bootmgrfw from another EFI partition
