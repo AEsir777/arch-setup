@@ -18,8 +18,7 @@ station wlan0 connect <Network name of the wifi>
 # enter password
 exit
 
-sudo pacman -S less
-
+sudo pacman -S less python-pip
 
 ##########################
 # systemd-boot add Windows from another ESP partition
@@ -30,3 +29,9 @@ sudo cp /usr/share/edk2-shell/x64/Shell.efi /boot/shellx64.efi
 
 # configure windows.conf entry
 # sudo vim ./loader/entries/windows.conf
+
+##########################
+# Setting up ALE as LSP client
+# Python
+sudo pacman -S pyright flake8
+
